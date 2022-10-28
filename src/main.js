@@ -46,5 +46,4 @@ async function getCategoriesPreview() {
     });
     console.log({data, categories});
 }
-getTrendingPreview();
-getCategoriesPreview()
+
