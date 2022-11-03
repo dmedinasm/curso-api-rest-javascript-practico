@@ -9,6 +9,16 @@ const api = axios.create({
     },
 });
 
+const showMovie = (section, movie) => {
+    const movieContainer = document.createElement('div');
+        movieContainer.classList.add('movie-container');
+        const movieImg = document.createElement('img');
+        movieImg.classList.add('movie-img');
+        movieImg.setAttribute('alt', movie.title);
+        movieImg.setAttribute('src', 'https://image.tmdb.org/t/p/w220_and_h330_face' + movie.poster_path,);
+        movieContainer.appendChild(movieImg);
+        section.appendChild(movieContainer);
+}
 async function getTrendingPreview() {
     const {data} = await api('/trending/movie/day');
     const movies = data.results;
@@ -16,16 +26,7 @@ async function getTrendingPreview() {
     trendingMoviesPreviewList.innerHTML = "";
 
     movies.forEach(movie => {
-        console.log(trendingMoviesPreviewList);
-        const movieContainer = document.createElement('div');
-        movieContainer.classList.add('movie-container');
-        const movieImg = document.createElement('img');
-        movieImg.classList.add('movie-img');
-        movieImg.setAttribute('alt', movie.title);
-        movieImg.setAttribute('src', 'https://image.tmdb.org/t/p/w220_and_h330_face' + movie.poster_path,);
-
-        movieContainer.appendChild(movieImg);
-        trendingMoviesPreviewList.appendChild(movieContainer);
+        showMovie(trendingMoviesPreviewList, movie);
     });
     console.log({data, movies});
 }
@@ -65,16 +66,7 @@ async function getMoviesByCategory(id) {
     genericSection.innerHTML = "";
 
     movies.forEach(movie => {
-        console.log(trendingMoviesPreviewList);
-        const movieContainer = document.createElement('div');
-        movieContainer.classList.add('movie-container');
-        const movieImg = document.createElement('img');
-        movieImg.classList.add('movie-img');
-        movieImg.setAttribute('alt', movie.title);
-        movieImg.setAttribute('src', 'https://image.tmdb.org/t/p/w220_and_h330_face' + movie.poster_path,);
-
-        movieContainer.appendChild(movieImg);
-        genericSection.appendChild(movieContainer);
+        showMovie(genericSection, movie);
     });
     console.log({data, movies});
 }
