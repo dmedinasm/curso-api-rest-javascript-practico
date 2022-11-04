@@ -30,6 +30,9 @@ function navigator () {
     }else{
         homePage();
     }
+
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 };
 
 function homePage() {
@@ -93,7 +96,6 @@ function categoriesPage() {
     searchForm.classList.add('inactive');
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
-    genericSection.scrollTop = 0;
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
     
