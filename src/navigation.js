@@ -8,7 +8,8 @@ trendingBtn.addEventListener('click',() => {
 })
 
 arrowBtn.addEventListener('click',() => {
-    location.hash = '#home';
+    //location.hash = '#home';
+    history.back();
 })
 
 
@@ -125,4 +126,6 @@ function searchPage() {
      //['#search','searched']
      const[_, query] = location.hash.split("=");
      getMoviesBySearch(query);
+     //searchFormInput.value = "";
+     
 }
